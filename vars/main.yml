@@ -1,0 +1,10 @@
+---
+# vars file for create-vm-foreman
+countryName:            "FR"
+localityName:           "Paris"
+organizationName:       "Your Organization Name"
+organizationalUnitName: "Your Organizational Unit Name"
+stateOrProvinceName:    "IDF"
+keySize:                2048
+cfssl_hostname:         "127.0.0.1"
+cfssl_port:             "8888"

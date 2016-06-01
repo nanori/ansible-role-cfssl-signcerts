@@ -1,0 +1,22 @@
+{
+	"hostname": "{{ hostname }}",
+	"request": {
+		"hosts": [
+			"{{ hostname }}"
+		],
+		"CN": "{{ hostname }}",
+		"key": {
+			"algo": "rsa",
+			"size": {{ keySize }}
+		},
+		"names": [
+		{
+			"C":  "{{ countryName }}",
+			"L":  "{{ localityName }}",
+			"O":  "{{ organizationName }}",
+			"OU": "{{ organizationalUnitName }}",
+			"ST": "{{ stateOrProvinceName }}"
+		}
+		]
+	}
+}

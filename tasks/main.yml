@@ -1,0 +1,19 @@
+---
+- name: Get certificate
+  uri:
+    url:              http://{{ cfssl_hostname }}:{{ cfssl_port }}/api/v1/cfssl/newcert
+    method:           POST
+    body:             "{{ lookup('template', 'certs_req.json') }}"
+    body_format:      json
+    status_code:      200
+  register: ssl_items
+
+- name: Extract certificate
+  copy:
+    content: "{{ ssl_items.json.result.certificate }}"
+    dest: /tmp/{{ hostname }}.pem
+
+- name: Extract private key
+  copy:
+    content: "{{ ssl_items.json.result.private_key }}"
+    dest: /tmp/{{ hostname }}-key.pem
